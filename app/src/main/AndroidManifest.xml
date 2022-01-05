@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SistemaCampeonatosDeFutebol">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.InformacoesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.CadastroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
