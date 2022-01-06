@@ -30,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
         fabCadastrarCampeonato = findViewById(R.id.fab_cadastrar_campeonato);
         rvListaCampeonatos = findViewById(R.id.rv_lista_campeonatos);
 
+
+
         ListaCampeonatosAdpter adapter = new ListaCampeonatosAdpter(listaFalsa.getLista());
+        System.out.println(listaFalsa.getLista().size());
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         rvListaCampeonatos.setLayoutManager(layoutManager);
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CadastroActivity.class);
+                startActivity(intent);
             }
         });
     }

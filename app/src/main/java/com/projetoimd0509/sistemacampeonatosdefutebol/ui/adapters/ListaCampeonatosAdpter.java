@@ -11,10 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.projetoimd0509.sistemacampeonatosdefutebol.R;
 import com.projetoimd0509.sistemacampeonatosdefutebol.model.Campeonato;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonatosAdpter.LCHolder> {
-    private List<Campeonato> listaCampeonatos;
+    private final List<Campeonato> listaCampeonatos;
 
     public ListaCampeonatosAdpter(List<Campeonato> listaCampeonatos) {
         this.listaCampeonatos = listaCampeonatos;
@@ -31,7 +32,7 @@ public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonato
     public void onBindViewHolder(@NonNull LCHolder holder, int position) {
         Campeonato campeonato = listaCampeonatos.get(position);
         holder.tvNomeCampeonato.setText(campeonato.getNome());
-        holder.tvNumeroParticipantes.setText("Numero participantes" + String.valueOf(campeonato.getNumeroParticipantes()));
+        holder.tvNumeroParticipantes.setText("Numero participantes: " + String.valueOf(campeonato.getNumeroParticipantes()));
         holder.tvLider.setText("Lider: " + campeonato.getLider().getNome());
         holder.tvViceLider.setText("Vice-lider: " + campeonato.getViceLider().getNome());
         if(campeonato.isEmAndamento()) {
@@ -43,7 +44,7 @@ public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonato
 
     @Override
     public int getItemCount() {
-        return this.listaCampeonatos.size();
+        return listaCampeonatos.size();
     }
 
     //Holder da Lista dos Campeonatos.
