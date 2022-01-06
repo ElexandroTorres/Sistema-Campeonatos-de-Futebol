@@ -10,7 +10,7 @@ public class Time {
     private int golsContra;
     private int saldoDeGols;
 
-    Time(String nome) {
+    public Time(String nome) {
         this.nome = nome;
         this.pontos = 0;
         this.vitorias = 0;
