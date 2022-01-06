@@ -29,7 +29,16 @@ public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonato
 
     @Override
     public void onBindViewHolder(@NonNull LCHolder holder, int position) {
-
+        Campeonato campeonato = listaCampeonatos.get(position);
+        holder.tvNomeCampeonato.setText(campeonato.getNome());
+        holder.tvNumeroParticipantes.setText("Numero participantes" + String.valueOf(campeonato.getNumeroParticipantes()));
+        holder.tvLider.setText("Lider: " + campeonato.getLider().getNome());
+        holder.tvViceLider.setText("Vice-lider: " + campeonato.getViceLider().getNome());
+        if(campeonato.isEmAndamento()) {
+            holder.tvAndamento.setText("Em andamento");
+        } else {
+            holder.tvAndamento.setText("Finalizado");
+        }
     }
 
     @Override
