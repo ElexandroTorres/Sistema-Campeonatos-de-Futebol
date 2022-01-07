@@ -19,7 +19,7 @@ import com.projetoimd0509.sistemacampeonatosdefutebol.R;
 import com.projetoimd0509.sistemacampeonatosdefutebol.dadosfalsos.ListaFalsaCampeonatos;
 import com.projetoimd0509.sistemacampeonatosdefutebol.ui.adapters.ListaCampeonatosAdpter;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ListaCampeonatosAdpter.ItemCampeonatoListener {
 
     private FloatingActionButton fabCadastrarCampeonato;
     private RecyclerView rvListaCampeonatos;
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         rvListaCampeonatos = findViewById(R.id.rv_lista_campeonatos);
 
 
-        ListaCampeonatosAdpter adapter = new ListaCampeonatosAdpter(listaFalsa.getLista());
+        ListaCampeonatosAdpter adapter = new ListaCampeonatosAdpter(listaFalsa.getLista(), this);
         System.out.println(listaFalsa.getLista().size());
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
@@ -99,5 +99,11 @@ public class MainActivity extends AppCompatActivity {
                 .create();
 
         infosDialog.show();
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent teste = new Intent(MainActivity.this, InformacoesActivity.class);
+        startActivity(teste);
     }
 }
