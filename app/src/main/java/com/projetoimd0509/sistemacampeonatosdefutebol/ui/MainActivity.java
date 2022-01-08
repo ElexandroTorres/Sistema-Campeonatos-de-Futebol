@@ -80,8 +80,8 @@ public class MainActivity extends AppCompatActivity implements ListaCampeonatosA
 
     private void criarDialog() {
         infosDialog = new AlertDialog.Builder(MainActivity.this)
-                .setTitle("Informações")
-                .setMessage("Integrante 1\nIntegrante 2\nIntegrande 3\nIntegrante 4")
+                .setTitle("Integrantes")
+                .setMessage("Elexandro Torres Tavares\nFranklin Luiz da Cruz\nVinicius Santos Silva de Lima")
                 .setPositiveButton("Ver Site", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements ListaCampeonatosA
 
     @Override
     public void onItemClick(int position) {
-        Intent teste = new Intent(MainActivity.this, InformacoesActivity.class);
-        startActivity(teste);
+        Intent intent = new Intent(MainActivity.this, InformacoesActivity.class);
+        startActivity(intent);
     }
 }
