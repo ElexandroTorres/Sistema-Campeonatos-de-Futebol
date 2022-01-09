@@ -11,6 +11,7 @@
         android:theme="@style/Theme.SistemaCampeonatosDeFutebol">
         <activity
             android:name=".ui.InformacoesActivity"
+            android:parentActivityName=".ui.MainActivity"
             android:exported="false" />
         <activity
             android:name=".ui.CadastroActivity"
