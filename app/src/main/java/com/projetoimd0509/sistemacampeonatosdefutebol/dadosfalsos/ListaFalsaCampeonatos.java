@@ -29,8 +29,12 @@ public class ListaFalsaCampeonatos {
         ArrayList<Time> participantes1 = new ArrayList<>();
         Time flamengo = new Time("Flamengo");
         Time sao_paulo = new Time("São Paulo");
+        Time palmeiras = new Time("Palmeiras");
+        Time inter = new Time("Inter");
         participantes1.add(flamengo);
         participantes1.add(sao_paulo);
+        participantes1.add(palmeiras);
+        participantes1.add(inter);
         campeonato1.setListaParticipantes(participantes1);
 
         Campeonato campeonato2 = new Campeonato("Torneio de verão", 6);

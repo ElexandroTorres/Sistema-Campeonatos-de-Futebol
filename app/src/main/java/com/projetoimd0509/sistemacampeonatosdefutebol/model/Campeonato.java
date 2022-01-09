@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Campeonato implements Parcelable {
@@ -87,6 +89,27 @@ public class Campeonato implements Parcelable {
             gerarPartidas();
         }
         return listaPartidas;
+    }
+
+    public List<Time> CalcularClassificacao() {
+        for (Partida partida : listaPartidas) {
+            Time time1 = partida.getTime1();
+            Time time2 = partida.getTime2();
+            if (partida.getTime1Gols() == partida.getTime2Gols()) {
+                time1.addEmpate();
+                time2.addEmpate();
+            } else if (partida.getTime1Gols() > partida.getTime2Gols()) {
+                time1.addVitoria();
+                time2.addDerrota();
+            } else {
+                time1.addDerrota();
+                time2.addVitoria();
+            }
+        }
+
+        Collections.sort(listaParticipantes);
+
+        return listaParticipantes;
     }
 
     @Override

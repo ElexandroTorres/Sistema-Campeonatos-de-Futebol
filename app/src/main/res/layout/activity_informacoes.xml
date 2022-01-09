@@ -29,7 +29,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/llInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/cor_primaria_variante"
@@ -40,29 +40,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Tabela de jogos"
-            android:textSize="24dp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Rodada 1"
-            android:textSize="24dp" />
-
-        <TableLayout
-            android:id="@+id/table"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
-            android:baselineAligned="false"
-            android:gravity="center_horizontal"/>
 
     </LinearLayout>
 
@@ -76,7 +53,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnClassificacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/cor_secundaria"
@@ -88,7 +65,7 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnTabela"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 

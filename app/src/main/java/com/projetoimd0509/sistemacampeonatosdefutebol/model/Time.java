@@ -3,15 +3,15 @@ package com.projetoimd0509.sistemacampeonatosdefutebol.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Time implements Parcelable {
+public class Time implements Parcelable, Comparable<Time> {
     private final String nome;
-    private int pontos;
-    private int vitorias;
-    private int derrotas;
-    private int empates;
-    private int gols;
-    private int golsContra;
-    private int saldoDeGols;
+    private Integer pontos;
+    private Integer vitorias;
+    private Integer derrotas;
+    private Integer empates;
+    private Integer gols;
+    private Integer golsContra;
+    private Integer saldoDeGols;
 
     public Time(String nome) {
         this.nome = nome;
@@ -28,59 +28,73 @@ public class Time implements Parcelable {
         return nome;
     }
 
-    public int getPontos() {
+    public Integer getPontos() {
         return pontos;
     }
 
-    public void setPontos(int pontos) {
+    public void setPontos(Integer pontos) {
         this.pontos = pontos;
     }
 
-    public int getVitorias() {
+    public Integer getVitorias() {
         return vitorias;
     }
 
-    public void setVitorias(int vitorias) {
+    public void setVitorias(Integer vitorias) {
         this.vitorias = vitorias;
     }
 
-    public int getDerrotas() {
+    public void addVitoria() {
+        this.vitorias++;
+        this.pontos += 3;
+    }
+
+    public Integer getDerrotas() {
         return derrotas;
     }
 
-    public void setDerrotas(int derrotas) {
+    public void setDerrotas(Integer derrotas) {
         this.derrotas = derrotas;
     }
 
-    public int getEmpates() {
+    public void addDerrota() {
+        this.derrotas++;
+    }
+
+    public Integer getEmpates() {
         return empates;
     }
 
-    public void setEmpates(int empates) {
+    public void setEmpates(Integer empates) {
         this.empates = empates;
     }
 
-    public int getGols() {
+    public void addEmpate() {
+        this.empates++;
+        this.pontos++;
+    }
+
+    public Integer getGols() {
         return gols;
     }
 
-    public void setGols(int gols) {
+    public void setGols(Integer gols) {
         this.gols = gols;
     }
 
-    public int getGolsContra() {
+    public Integer getGolsContra() {
         return golsContra;
     }
 
-    public void setGolsContra(int golsContra) {
+    public void setGolsContra(Integer golsContra) {
         this.golsContra = golsContra;
     }
 
-    public int getSaldoDeGols() {
+    public Integer getSaldoDeGols() {
         return saldoDeGols;
     }
 
-    public void setSaldoDeGols(int saldoDeGols) {
+    public void setSaldoDeGols(Integer saldoDeGols) {
         this.saldoDeGols = saldoDeGols;
     }
 
@@ -121,5 +135,14 @@ public class Time implements Parcelable {
         gols = in.readInt();
         golsContra = in.readInt();
         saldoDeGols = in.readInt();
+    }
+
+    @Override
+    public int compareTo(Time t) {
+        if (t.getPontos() == pontos) {
+            return t.getSaldoDeGols().compareTo(saldoDeGols);
+        }
+
+        return t.getPontos().compareTo(pontos);
     }
 }
