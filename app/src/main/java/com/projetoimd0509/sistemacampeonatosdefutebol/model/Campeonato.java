@@ -15,6 +15,10 @@ public class Campeonato {
         this.numeroParticipantes = numeroParticipantes;
     }
 
+    public Campeonato(){
+
+    }
+
     public String getNome() {
         return nome;
     }

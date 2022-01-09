@@ -11,9 +11,12 @@ import android.view.View;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.projetoimd0509.sistemacampeonatosdefutebol.R;
 import com.projetoimd0509.sistemacampeonatosdefutebol.dadosfalsos.ListaFalsaCampeonatos;
+import com.projetoimd0509.sistemacampeonatosdefutebol.fragmento.CampeonatoDialogFragment;
+import com.projetoimd0509.sistemacampeonatosdefutebol.model.Campeonato;
 import com.projetoimd0509.sistemacampeonatosdefutebol.ui.adapters.ListaCampeonatosAdpter;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements CampeonatoDialogFragment.AoSalvarCampeonato {
 
     FloatingActionButton fabCadastrarCampeonato;
     RecyclerView rvListaCampeonatos;
@@ -52,5 +55,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void salvouCampeonato(Campeonato campeonato) {
+        listaFalsa.getLista().add(campeonato);
     }
 }

@@ -7,99 +7,6 @@
     tools:context=".ui.CadastroActivity"
     android:background="@color/cor_primaria">
 
-    <EditText
-        android:id="@+id/etNome7"
-        android:layout_width="292dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="96dp"
-        android:background="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNome"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/tvNumeroParticipantes2"
-        android:layout_width="298dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="140dp"
-        android:text="Times Participantes:"
-        android:textColor="@color/white"
-        android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNome"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/etNome9"
-        android:layout_width="298dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="316dp"
-        android:background="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNome"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/etNome8"
-        android:layout_width="298dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="272dp"
-        android:background="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNome"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/etNome10"
-        android:layout_width="298dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="364dp"
-        android:background="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNome"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/etNome3"
-        android:layout_width="298dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="224dp"
-        android:background="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNome"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/tvNome3"
-        android:layout_width="145dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="172dp"
-        android:background="@color/white"
-        android:text="    1 Turno"
-        android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/tvNome2"
-        android:layout_width="119dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="172dp"
-        android:text="Formato:"
-        android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
     <TextView
         android:id="@+id/tvNome"
         android:layout_width="291dp"
@@ -135,6 +42,102 @@
         app:layout_constraintTop_toBottomOf="@+id/etNome"
         tools:ignore="MissingConstraints" />
 
+    <EditText
+        android:id="@+id/etNumeroParticipantes"
+        android:layout_width="292dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="96dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNome"
+        tools:ignore="MissingConstraints" />
+
+
+
+    <TextView
+        android:id="@+id/tvTurno"
+        android:layout_width="145dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="172dp"
+        android:background="@color/white"
+        android:text="    1 Turno"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvFornmato"
+        android:layout_width="119dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="172dp"
+        android:text="Formato:"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/tvTimesParticipantes"
+        android:layout_width="298dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="140dp"
+        android:text="Times Participantes:"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNome"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/etTime1"
+        android:layout_width="298dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="224dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNome"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/etTime2"
+        android:layout_width="298dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="272dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNome"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/etTime3"
+        android:layout_width="298dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="316dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNome"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/etTime4"
+        android:layout_width="298dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="364dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNome"
+        tools:ignore="MissingConstraints" />
+
     <Button
         android:id="@+id/btnCancelar"
         android:layout_width="wrap_content"
@@ -145,7 +148,7 @@
         android:text="Cancelar"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNome10"
+        app:layout_constraintTop_toBottomOf="@+id/etTime4"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -157,7 +160,7 @@
         android:textColor="@color/black"
         android:text="Cadastrar"
         app:layout_constraintStart_toEndOf="@+id/btnCancelar"
-        app:layout_constraintTop_toBottomOf="@+id/etNome10"
+        app:layout_constraintTop_toBottomOf="@+id/etTime4"
         tools:ignore="MissingConstraints" />
 
 

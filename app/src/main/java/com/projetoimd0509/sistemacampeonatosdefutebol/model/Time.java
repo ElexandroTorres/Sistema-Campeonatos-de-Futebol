@@ -1,7 +1,7 @@
 package com.projetoimd0509.sistemacampeonatosdefutebol.model;
 
 public class Time {
-    private final String nome;
+    private String nome;
     private int pontos;
     private int vitorias;
     private int derrotas;
@@ -21,9 +21,15 @@ public class Time {
         this.saldoDeGols = 0;
     }
 
+    public Time(){
+
+    }
+
     public String getNome() {
         return nome;
     }
+
+    public void setNome(String nome){ this.nome = nome; }
 
     public int getPontos() {
         return pontos;
@@ -79,5 +85,10 @@ public class Time {
 
     public void setSaldoDeGols(int saldoDeGols) {
         this.saldoDeGols = saldoDeGols;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
     }
 }

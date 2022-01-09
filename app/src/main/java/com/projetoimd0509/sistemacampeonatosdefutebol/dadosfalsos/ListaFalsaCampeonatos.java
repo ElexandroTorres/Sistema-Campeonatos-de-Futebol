@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListaFalsaCampeonatos {
-    public List<Campeonato> listaFalsaCampeonatos;
+    public static List<Campeonato> listaFalsaCampeonatos;
 
     public ListaFalsaCampeonatos() {
         listaFalsaCampeonatos = new ArrayList<Campeonato>();
