@@ -1,5 +1,6 @@
 package com.projetoimd0509.sistemacampeonatosdefutebol.ui.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.projetoimd0509.sistemacampeonatosdefutebol.R;
 import com.projetoimd0509.sistemacampeonatosdefutebol.model.Campeonato;
+import com.projetoimd0509.sistemacampeonatosdefutebol.ui.InformacoesActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonatosAdpter.LCHolder> {
@@ -35,7 +36,7 @@ public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonato
         holder.tvNumeroParticipantes.setText("Numero participantes: " + String.valueOf(campeonato.getNumeroParticipantes()));
         holder.tvLider.setText("Lider: " + campeonato.getLider().getNome());
         holder.tvViceLider.setText("Vice-lider: " + campeonato.getViceLider().getNome());
-        if(campeonato.isEmAndamento()) {
+        if (campeonato.isEmAndamento()) {
             holder.tvAndamento.setText("Em andamento");
         } else {
             holder.tvAndamento.setText("Finalizado");
@@ -48,7 +49,7 @@ public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonato
     }
 
     //Holder da Lista dos Campeonatos.
-    public class LCHolder extends  RecyclerView.ViewHolder{
+    public class LCHolder extends RecyclerView.ViewHolder {
         TextView tvNomeCampeonato;
         TextView tvNumeroParticipantes;
         TextView tvLider;
@@ -62,6 +63,14 @@ public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonato
             tvLider = itemView.findViewById(R.id.tv_lider);
             tvViceLider = itemView.findViewById(R.id.tv_vice_lider);
             tvAndamento = itemView.findViewById(R.id.tv_andamento);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent resultadoActivity = new Intent(itemView.getContext(), InformacoesActivity.class);
+                    itemView.getContext().startActivity(resultadoActivity);
+                }
+            });
         }
     }
 }
