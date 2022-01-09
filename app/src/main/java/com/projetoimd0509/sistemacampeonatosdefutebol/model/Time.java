@@ -44,9 +44,16 @@ public class Time implements Parcelable, Comparable<Time> {
         this.vitorias = vitorias;
     }
 
-    public void addVitoria() {
+    private void addGols(int gols, int golsContra) {
+        this.gols += gols;
+        this.golsContra += golsContra;
+        this.saldoDeGols += gols - golsContra;
+    }
+
+    public void addVitoria(int gols, int golsContra) {
         this.vitorias++;
         this.pontos += 3;
+        addGols(gols, golsContra);
     }
 
     public Integer getDerrotas() {
@@ -57,8 +64,9 @@ public class Time implements Parcelable, Comparable<Time> {
         this.derrotas = derrotas;
     }
 
-    public void addDerrota() {
+    public void addDerrota(int gols, int golsContra) {
         this.derrotas++;
+        addGols(gols, golsContra);
     }
 
     public Integer getEmpates() {
@@ -69,9 +77,10 @@ public class Time implements Parcelable, Comparable<Time> {
         this.empates = empates;
     }
 
-    public void addEmpate() {
+    public void addEmpate(int gols, int golsContra) {
         this.empates++;
         this.pontos++;
+        addGols(gols, golsContra);
     }
 
     public Integer getGols() {

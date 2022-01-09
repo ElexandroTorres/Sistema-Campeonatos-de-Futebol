@@ -93,17 +93,15 @@ public class Campeonato implements Parcelable {
 
     public List<Time> CalcularClassificacao() {
         for (Partida partida : listaPartidas) {
-            Time time1 = partida.getTime1();
-            Time time2 = partida.getTime2();
             if (partida.getTime1Gols() == partida.getTime2Gols()) {
-                time1.addEmpate();
-                time2.addEmpate();
+                partida.getTime1().addEmpate(partida.getTime1Gols(), partida.getTime2Gols());
+                partida.getTime2().addEmpate(partida.getTime1Gols(), partida.getTime2Gols());
             } else if (partida.getTime1Gols() > partida.getTime2Gols()) {
-                time1.addVitoria();
-                time2.addDerrota();
+                partida.getTime1().addVitoria(partida.getTime1Gols(), partida.getTime2Gols());
+                partida.getTime2().addDerrota(partida.getTime1Gols(), partida.getTime2Gols());
             } else {
-                time1.addDerrota();
-                time2.addVitoria();
+                partida.getTime1().addDerrota(partida.getTime1Gols(), partida.getTime2Gols());
+                partida.getTime2().addVitoria(partida.getTime1Gols(), partida.getTime2Gols());
             }
         }
 

@@ -76,7 +76,12 @@ public class InformacoesActivity extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    partida.setTime1Gols(Integer.parseInt(s.toString()));
+                    if(s.length() != 0) {
+                        partida.setTime1Gols(Integer.parseInt(s.toString()));
+                    } else {
+                        partida.setTime1Gols(0);
+
+                    }
                 }
 
                 @Override
@@ -99,8 +104,12 @@ public class InformacoesActivity extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    partida.setTime2Gols(Integer.parseInt(s.toString()));
-                }
+                    if(s.length() != 0) {
+                        partida.setTime2Gols(Integer.parseInt(s.toString()));
+                    } else {
+                        partida.setTime2Gols(0);
+
+                    }                }
 
                 @Override
                 public void afterTextChanged(Editable s) {
@@ -131,8 +140,20 @@ public class InformacoesActivity extends AppCompatActivity {
             TextView tvVitorias = row.findViewById(R.id.tvVitorias);
             tvVitorias.setText(String.valueOf(time.getVitorias()));
 
+            TextView tvEmpates = row.findViewById(R.id.tvEmpates);
+            tvEmpates.setText(String.valueOf(time.getEmpates()));
+
             TextView tvDerrotas = row.findViewById(R.id.tvDerrotas);
             tvDerrotas.setText(String.valueOf(time.getDerrotas()));
+
+            TextView tvGols = row.findViewById(R.id.tvGols);
+            tvGols.setText(String.valueOf(time.getGols()));
+
+            TextView tvGolsContra = row.findViewById(R.id.tvGolsContra);
+            tvGolsContra.setText(String.valueOf(time.getGolsContra()));
+
+            TextView tvSaldoDeGols = row.findViewById(R.id.tvSaldoDeGols);
+            tvSaldoDeGols.setText(String.valueOf(time.getSaldoDeGols()));
 
             table.addView(row);
         }
