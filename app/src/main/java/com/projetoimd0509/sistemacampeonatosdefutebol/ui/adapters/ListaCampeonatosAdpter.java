@@ -16,16 +16,18 @@ import java.util.List;
 
 public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonatosAdpter.LCHolder> {
     private final List<Campeonato> listaCampeonatos;
+    private ItemCampeonatoListener itemListener;
 
-    public ListaCampeonatosAdpter(List<Campeonato> listaCampeonatos) {
+    public ListaCampeonatosAdpter(List<Campeonato> listaCampeonatos, ItemCampeonatoListener itemListener) {
         this.listaCampeonatos = listaCampeonatos;
+        this.itemListener = itemListener;
     }
 
     @NonNull
     @Override
     public LCHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemCampeonato = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_campeonato, parent, false);
-        return new LCHolder(itemCampeonato);
+        return new LCHolder(itemCampeonato, itemListener);
     }
 
     @Override
@@ -48,20 +50,33 @@ public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonato
     }
 
     //Holder da Lista dos Campeonatos.
-    public class LCHolder extends  RecyclerView.ViewHolder{
+    public class LCHolder extends  RecyclerView.ViewHolder implements View.OnClickListener{
         TextView tvNomeCampeonato;
         TextView tvNumeroParticipantes;
         TextView tvLider;
         TextView tvViceLider;
         TextView tvAndamento;
+        ItemCampeonatoListener itemCListener;
 
-        public LCHolder(View itemView) {
+        public LCHolder(View itemView, ItemCampeonatoListener itemCListener) {
             super(itemView);
             tvNomeCampeonato = itemView.findViewById(R.id.tv_nome_campeonato);
             tvNumeroParticipantes = itemView.findViewById(R.id.tv_numero_participantes);
             tvLider = itemView.findViewById(R.id.tv_lider);
             tvViceLider = itemView.findViewById(R.id.tv_vice_lider);
             tvAndamento = itemView.findViewById(R.id.tv_andamento);
+            this.itemCListener = itemCListener;
+
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            itemCListener.onItemClick(getAdapterPosition());
+        }
+    }
+
+    public interface ItemCampeonatoListener {
+        void onItemClick(int position);
     }
 }
