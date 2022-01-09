@@ -1,6 +1,9 @@
 package com.projetoimd0509.sistemacampeonatosdefutebol.model;
 
-public class Time {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Time implements Parcelable {
     private final String nome;
     private int pontos;
     private int vitorias;
@@ -79,5 +82,44 @@ public class Time {
 
     public void setSaldoDeGols(int saldoDeGols) {
         this.saldoDeGols = saldoDeGols;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(nome);
+        dest.writeInt(pontos);
+        dest.writeInt(vitorias);
+        dest.writeInt(derrotas);
+        dest.writeInt(empates);
+        dest.writeInt(gols);
+        dest.writeInt(golsContra);
+        dest.writeInt(saldoDeGols);
+    }
+
+    public static final Parcelable.Creator<Time> CREATOR = new Parcelable.Creator<Time>() {
+        public Time createFromParcel(Parcel in) {
+            return new Time(in);
+        }
+
+        public Time[] newArray(int size) {
+            return new Time[size];
+        }
+    };
+
+    // example constructor that takes a Parcel and gives you an object populated with it's values
+    private Time(Parcel in) {
+        nome = in.readString();
+        pontos = in.readInt();
+        vitorias = in.readInt();
+        derrotas = in.readInt();
+        empates = in.readInt();
+        gols = in.readInt();
+        golsContra = in.readInt();
+        saldoDeGols = in.readInt();
     }
 }

@@ -1,6 +1,7 @@
 package com.projetoimd0509.sistemacampeonatosdefutebol.ui.adapters;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,7 @@ public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonato
     @Override
     public void onBindViewHolder(@NonNull LCHolder holder, int position) {
         Campeonato campeonato = listaCampeonatos.get(position);
+        holder.campeonato = campeonato;
         holder.tvNomeCampeonato.setText(campeonato.getNome());
         holder.tvNumeroParticipantes.setText("Numero participantes: " + String.valueOf(campeonato.getNumeroParticipantes()));
         holder.tvLider.setText("Lider: " + campeonato.getLider().getNome());
@@ -50,6 +52,7 @@ public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonato
 
     //Holder da Lista dos Campeonatos.
     public class LCHolder extends RecyclerView.ViewHolder {
+        Campeonato campeonato;
         TextView tvNomeCampeonato;
         TextView tvNumeroParticipantes;
         TextView tvLider;
@@ -67,8 +70,9 @@ public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonato
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent resultadoActivity = new Intent(itemView.getContext(), InformacoesActivity.class);
-                    itemView.getContext().startActivity(resultadoActivity);
+                    Intent informacoesActivity = new Intent(itemView.getContext(), InformacoesActivity.class);
+                    informacoesActivity.putExtra("campeonato", (Parcelable) campeonato);
+                    itemView.getContext().startActivity(informacoesActivity);
                 }
             });
         }
