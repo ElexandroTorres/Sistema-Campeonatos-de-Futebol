@@ -119,6 +119,8 @@ public class MainActivity extends AppCompatActivity implements ListaCampeonatosA
             }
         });
 
+
+
     }
 
     private void criarDialog() {

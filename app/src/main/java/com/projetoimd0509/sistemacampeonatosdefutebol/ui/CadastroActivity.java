@@ -48,8 +48,6 @@ public class CadastroActivity extends AppCompatActivity {
             public void onClick(View v) {
                 novoCampeonato.setNome(etNome.getText().toString());
                 adicionarTimes();
-                novoCampeonato.setLider(new Time("teste"));
-                novoCampeonato.setViceLider(new Time("teste2"));
                 Intent intent = new Intent();
                 intent.putExtra("campeonatoCadastro", novoCampeonato);
                 setResult(RESULT_OK, intent);
@@ -71,13 +69,8 @@ public class CadastroActivity extends AppCompatActivity {
         novoCampeonato.adicionarParticipante(new Time(etTime2.getText().toString()));
         novoCampeonato.adicionarParticipante(new Time(etTime3.getText().toString()));
         novoCampeonato.adicionarParticipante(new Time(etTime4.getText().toString()));
-
-        Log.d("meusteste", "teste", null);
-    }
-
-    private void adicionarCampeonato() {
-        Log.d("testes", "Tamanho lista antes" + SistemaGerenciamento.listaCampeonatos.size());
-        SistemaGerenciamento.listaCampeonatos.add(novoCampeonato);
-        Log.d("testes", "Tamanho lista depois" + SistemaGerenciamento.listaCampeonatos.size());
+        novoCampeonato.setLider(novoCampeonato.getListaParticipantes().get(0));
+        novoCampeonato.setViceLider(novoCampeonato.getListaParticipantes().get(1));
+        novoCampeonato.setEmAndamento(true);
     }
 }
