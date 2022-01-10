@@ -22,7 +22,7 @@ public class ListaFalsaCampeonatos {
 
     private void popularLista() {
 
-        Campeonato campeonato1 = new Campeonato("Torneio de Natal", 4);
+        Campeonato campeonato1 = new Campeonato("Torneio de Natal");
         campeonato1.setLider(new Time("Flamengo"));
         campeonato1.setViceLider(new Time("Corinthians"));
         campeonato1.setEmAndamento(true);
@@ -37,12 +37,12 @@ public class ListaFalsaCampeonatos {
         participantes1.add(inter);
         campeonato1.setListaParticipantes(participantes1);
 
-        Campeonato campeonato2 = new Campeonato("Torneio de verão", 6);
+        Campeonato campeonato2 = new Campeonato("Torneio de verão");
         campeonato2.setLider(new Time("Palmeiras"));
         campeonato2.setViceLider(new Time("Inter"));
         campeonato2.setEmAndamento(false);
 
-        Campeonato campeonato3 = new Campeonato("Torneio de inverno", 4);
+        Campeonato campeonato3 = new Campeonato("Torneio de inverno");
         campeonato3.setLider(new Time("Cuiaba"));
         campeonato3.setViceLider(new Time("Barcelona"));
         campeonato3.setEmAndamento(true);

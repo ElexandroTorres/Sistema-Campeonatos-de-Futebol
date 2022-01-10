@@ -10,18 +10,15 @@ import java.util.List;
 
 public class Campeonato implements Parcelable {
     private String nome;
-    private int numeroParticipantes;
-    private boolean emAndamento;
+    private int numeroParticipantes = 4;
+    private int emAndamento;
     private Time lider;
     private Time viceLider;
     private List<Time> listaParticipantes = new ArrayList<Time>();
     private List<Partida> listaPartidas = new ArrayList<Partida>();
 
-    public Campeonato(String nome, int numeroParticipantes) {
+    public Campeonato(String nome) {
         this.nome = nome;
-        this.numeroParticipantes = numeroParticipantes;
-        //this.listaParticipantes = new ArrayList<>();
-        //this.listaPartidas = new ArrayList<>();
     }
 
     public Campeonato(){
@@ -45,11 +42,17 @@ public class Campeonato implements Parcelable {
     }
 
     public boolean isEmAndamento() {
-        return emAndamento;
+        if(emAndamento == 1) {
+            return true;
+        }
+        return false;
     }
 
     public void setEmAndamento(boolean emAndamento) {
-        this.emAndamento = emAndamento;
+        if(emAndamento == true) {
+            this.emAndamento = 1;
+        }
+        this.emAndamento = 0;
     }
 
     public Time getLider() {
@@ -123,7 +126,7 @@ public class Campeonato implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(nome);
         dest.writeInt(numeroParticipantes);
-        //dest.writeBoolean(emAndamento);
+        dest.writeInt(emAndamento);
         dest.writeParcelable(lider, 0);
         dest.writeParcelable(viceLider, 0);
         dest.writeList(listaParticipantes);
@@ -144,7 +147,7 @@ public class Campeonato implements Parcelable {
     private Campeonato(Parcel in) {
         nome = in.readString();
         numeroParticipantes = in.readInt();
-        //emAndamento = in.readBoolean();
+        emAndamento = in.readInt();
         lider = in.readParcelable(Time.class.getClassLoader());
         viceLider = in.readParcelable(Time.class.getClassLoader());
         listaParticipantes = in.readArrayList(Time.class.getClassLoader());

@@ -2,6 +2,7 @@ package com.projetoimd0509.sistemacampeonatosdefutebol.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -49,7 +50,9 @@ public class CadastroActivity extends AppCompatActivity {
                 adicionarTimes();
                 novoCampeonato.setLider(new Time("teste"));
                 novoCampeonato.setViceLider(new Time("teste2"));
-                adicionarCampeonato();
+                Intent intent = new Intent();
+                intent.putExtra("campeonatoCadastro", novoCampeonato);
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });
