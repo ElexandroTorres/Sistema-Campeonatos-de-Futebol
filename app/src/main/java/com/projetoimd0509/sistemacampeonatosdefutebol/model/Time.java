@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Time implements Parcelable, Comparable<Time> {
-    private final String nome;
+    private String nome;
     private Integer pontos;
     private Integer vitorias;
     private Integer derrotas;

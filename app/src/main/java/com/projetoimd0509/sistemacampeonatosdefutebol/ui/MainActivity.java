@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,30 +18,39 @@ import android.view.View;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.projetoimd0509.sistemacampeonatosdefutebol.R;
 import com.projetoimd0509.sistemacampeonatosdefutebol.dadosfalsos.ListaFalsaCampeonatos;
+import com.projetoimd0509.sistemacampeonatosdefutebol.model.SistemaGerenciamento;
 import com.projetoimd0509.sistemacampeonatosdefutebol.ui.adapters.ListaCampeonatosAdpter;
 
 public class MainActivity extends AppCompatActivity implements ListaCampeonatosAdpter.ItemCampeonatoListener {
 
+
     private FloatingActionButton fabCadastrarCampeonato;
     private RecyclerView rvListaCampeonatos;
-    private ListaFalsaCampeonatos listaFalsa;
 
     private AlertDialog infosDialog;
+
+    private ListaFalsaCampeonatos listaFalsa;
+
+    ListaCampeonatosAdpter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //apenas para testes
         listaFalsa = new ListaFalsaCampeonatos();
+
+        SistemaGerenciamento.listaCampeonatos = listaFalsa.getLista();
+
+        //sistemaGerenciamento.definirLista(listaFalsa.getLista());
 
         fabCadastrarCampeonato = findViewById(R.id.fab_cadastrar_campeonato);
         rvListaCampeonatos = findViewById(R.id.rv_lista_campeonatos);
 
 
-        ListaCampeonatosAdpter adapter = new ListaCampeonatosAdpter(listaFalsa.getLista(), this);
-        System.out.println(listaFalsa.getLista().size());
+        //ListaCampeonatosAdpter adapter = new ListaCampeonatosAdpter(listaFalsa.getLista(), this);
+        adapter = new ListaCampeonatosAdpter(SistemaGerenciamento.listaCampeonatos, this);
+        //System.out.println(listaFalsa.getLista().size());
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         rvListaCampeonatos.setLayoutManager(layoutManager);
@@ -49,6 +59,12 @@ public class MainActivity extends AppCompatActivity implements ListaCampeonatosA
 
 
         setListeners();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter.notifyItemInserted(3);
     }
 
     @Override
@@ -71,8 +87,8 @@ public class MainActivity extends AppCompatActivity implements ListaCampeonatosA
         fabCadastrarCampeonato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CadastroActivity.class);
-                startActivity(intent);
+                Intent cadastroIntent = new Intent(MainActivity.this, CadastroActivity.class);
+                startActivity(cadastroIntent);
             }
         });
 
@@ -103,7 +119,8 @@ public class MainActivity extends AppCompatActivity implements ListaCampeonatosA
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(MainActivity.this, InformacoesActivity.class);
-        startActivity(intent);
+        Intent informacoesIntent = new Intent(MainActivity.this, InformacoesActivity.class);
+        informacoesIntent.putExtra("campeonato", (Parcelable) SistemaGerenciamento.listaCampeonatos.get(position));
+        startActivity(informacoesIntent);
     }
 }
