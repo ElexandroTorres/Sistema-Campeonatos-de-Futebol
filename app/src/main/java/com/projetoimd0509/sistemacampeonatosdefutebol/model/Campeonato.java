@@ -24,6 +24,10 @@ public class Campeonato implements Parcelable {
         this.listaPartidas = new ArrayList<>();
     }
 
+    public Campeonato(){
+
+    }
+
     public String getNome() {
         return nome;
     }

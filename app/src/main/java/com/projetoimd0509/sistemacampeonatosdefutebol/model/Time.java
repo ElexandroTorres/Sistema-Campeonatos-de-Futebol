@@ -13,6 +13,7 @@ public class Time implements Parcelable, Comparable<Time> {
     private Integer golsContra;
     private Integer saldoDeGols;
 
+
     public Time(String nome) {
         this.nome = nome;
         this.pontos = 0;
@@ -24,9 +25,15 @@ public class Time implements Parcelable, Comparable<Time> {
         this.saldoDeGols = 0;
     }
 
+    public Time(){
+
+    }
+
     public String getNome() {
         return nome;
     }
+  
+    public void setNome(String nome){ this.nome = nome; }
 
     public Integer getPontos() {
         return pontos;
