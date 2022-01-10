@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/tvTime1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="Time 1"
+        android:textSize="24dp" />
+
+    <EditText
+        android:id="@+id/etPlacar1"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:ems="10"
+        android:inputType="numberSigned" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X"
+        android:textSize="24dp" />
+
+    <EditText
+        android:id="@+id/etPlacar2"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:ems="10"
+        android:inputType="numberSigned" />
+
+    <TextView
+        android:id="@+id/tvTime2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Time 2"
+        android:textSize="24dp" />
+
+</TableRow>

@@ -1,5 +1,7 @@
 package com.projetoimd0509.sistemacampeonatosdefutebol.ui.adapters;
 
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.projetoimd0509.sistemacampeonatosdefutebol.R;
 import com.projetoimd0509.sistemacampeonatosdefutebol.model.Campeonato;
+import com.projetoimd0509.sistemacampeonatosdefutebol.ui.InformacoesActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonatosAdpter.LCHolder> {
@@ -33,11 +35,12 @@ public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonato
     @Override
     public void onBindViewHolder(@NonNull LCHolder holder, int position) {
         Campeonato campeonato = listaCampeonatos.get(position);
+        holder.campeonato = campeonato;
         holder.tvNomeCampeonato.setText(campeonato.getNome());
         holder.tvNumeroParticipantes.setText("Numero participantes: " + String.valueOf(campeonato.getNumeroParticipantes()));
         holder.tvLider.setText("Lider: " + campeonato.getLider().getNome());
         holder.tvViceLider.setText("Vice-lider: " + campeonato.getViceLider().getNome());
-        if(campeonato.isEmAndamento()) {
+        if (campeonato.isEmAndamento()) {
             holder.tvAndamento.setText("Em andamento");
         } else {
             holder.tvAndamento.setText("Finalizado");
@@ -51,6 +54,7 @@ public class ListaCampeonatosAdpter extends RecyclerView.Adapter<ListaCampeonato
 
     //Holder da Lista dos Campeonatos.
     public class LCHolder extends  RecyclerView.ViewHolder implements View.OnClickListener{
+        Campeonato campeonato;
         TextView tvNomeCampeonato;
         TextView tvNumeroParticipantes;
         TextView tvLider;
