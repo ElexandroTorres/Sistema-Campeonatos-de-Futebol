@@ -31,6 +31,7 @@ public class InformacoesActivity extends AppCompatActivity {
 
         Campeonato campeonato = getIntent().getParcelableExtra("campeonato");
         setTitle(campeonato.getNome());
+
         renderTabela(campeonato);
 
         Button btnClassificacao = findViewById(R.id.btnClassificacao);
@@ -160,4 +161,6 @@ public class InformacoesActivity extends AppCompatActivity {
 
 
     }
+
+
 }
